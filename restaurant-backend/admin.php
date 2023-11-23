@@ -56,14 +56,14 @@ try {
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Gallery</a>
                     </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Menu</a>
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Menu</a>
                     </li>
                 </ul>
             </div>
                 <div class="main-content-dashboard">
                     <nav class="navbar-dashboard">
                         <form action="./logout.php" method="post" style="display:inline;">
-                            <button type="submit" class="nav-link" style="background: transparent; border: none; color: #a82c48;">Logout</button>
+                            <button type="submit" class="nav-link fs-3" style="background: transparent; border: none;"><i class="fa-solid fa-right-from-bracket" style="color: black;"></i></button>
                         </form>
                     </nav>
                     <div class="content-dashboard">
@@ -233,6 +233,7 @@ try {
                                     <div class="details order-2 order-lg-1">
                                         <h3>Gallery | Add images</h3>
                                         <!-- ********** Gallery *********** -->
+
                                         <form action="./upload-image.php" method="post" enctype="multipart/form-data" class="pt-4">
                                             <div class="col-auto">
                                                 <input type="file" name="image" class="form-control" required>
@@ -252,6 +253,7 @@ try {
                                             <thead>
                                                 <th>Date</th>
                                                 <th>Filename</th>
+                                                <th>Img</th>
                                                 <th>Delete</th>
                                             </thead>
                                             <tbody>
@@ -259,6 +261,9 @@ try {
                                                 <tr>
                                                     <td>
                                                         <?= $image_gallery['created_at'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $image_gallery['filename'] ?>
                                                     </td>
                                                     <td>
                                                         <?= $image_gallery['filename'] ?>

@@ -26,6 +26,5 @@ new Swiper('.events-slider', {
     }
 });
 
-/**
-   * Animation on scroll
-   */
+
+

@@ -1,9 +1,8 @@
 <?php
-
 // MySQL Database Connection
 $host = "localhost";
 $username = "root";
-$userpassword = "root";
+$password = "root";
 $database = "restaurant";
 
 try {
@@ -15,8 +14,10 @@ try {
     exit;
 }
 
+$errors = [];
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (!empty($_FILES['name'])) {
+    if (empty($errors)) {
         // Uploader l'image dans la base de donnée
         $img_name = $_FILES['image']['name'];
         $img_size = $_FILES['image']['size'];
@@ -37,13 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $img_upload_path = '../restaurant-frontend/upload-img-gallery/' . $new_img_name;
                     move_uploaded_file($tmp_name, $img_upload_path);
 
-                    $query = $conn->prepare("INSERT INTO images (filename) VALUES (?)");
+                    $query = $conn->prepare("INSERT INTO images_gallery (filename) VALUES (?)");
                     $query->execute([$new_img_name]);
-                    header("Location: /re");
-                } else {
                     header("location: /restaurant2.0/restaurant-backend/admin.php"); 
+                } else {
+                    $errors['image'] = "Fichier non supporté.";
                 }
             }
         }
+    } else {
+
     }
 }
