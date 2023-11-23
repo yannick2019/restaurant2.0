@@ -1,0 +1,620 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Poppins:wght@300&family=Roboto:wght@100;300;400;500&family=Rubik:wght@500&family=Shadows+Into+Light&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #a82c48;
+    --secondary-color: #43121d;
+    --third-color: #FFD28F;
+    --text-color: #555;
+    --black-color: #0F0F0F;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 100%;
+    font-weight: 400;
+    background: #ecf0f1;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: var(--secondary-color);
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2.25rem;
+    text-transform: capitalize;
+    color: var(--secondary-color);
+}
+
+h4 {
+    color: var(--secondary-color);
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+h5 {
+    color: var(--primary-color);
+    text-transform: capitalize;
+    font-family: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 400;
+    line-height: 1.75rem;
+    letter-spacing: 1px;
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 0.6rem 1.87rem;
+    line-height: 1.56rem;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    box-shadow: 0px 2px 10px -1px rgb(0 0 0 / 19%);
+    -webkit-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+}
+
+.white-btn {
+    display: inline-block;
+    padding: 0.625rem 1.875rem;
+    line-height: 25px;
+    background-color: #fff;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    border: 3px solid var(--primary-color);
+    border-radius: 50px;
+}
+
+.main-btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.text-content {
+    width: 70%;
+    margin: auto;
+} 
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* change navbar styling on scroll */
+.navigation-wrap.scroll-on {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0.125rem 1.75rem 0 rgb(0, 0, 0, 0.09);
+    transition: all .15s ease-in-out 0s;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.navigation-wrap {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+/*--------------------------------------------------------------
+# Banner
+--------------------------------------------------------------*/
+.top-banner {
+    width: 100%;
+    background: url("../images/bg-1.webp");
+    background-repeat: repeat;
+    background-size: cover;
+    padding: 16.875rem 0 9.375rem;
+}
+
+
+/*--------------------------------------------------------------
+# Why Us
+--------------------------------------------------------------*/
+.why-us .box {
+    padding: 50px 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all ease-in-out 0.3s;
+    background: var(--primary-color);
+}
+  
+.why-us .box span {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #cda45e;
+}
+  
+.why-us .box h4 {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0;
+    margin: 20px 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+  
+.why-us .box p {
+    color: #fff;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+  
+.why-us .box:hover {
+    background: #fff;
+    border: 2px solid var(--primary-color);
+    padding: 30px 30px 70px 30px;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+}
+  
+.why-us .box:hover p {
+    color: var(--text-color);
+}
+
+.why-us .box:hover h4 {
+    color: var(--primary-color);
+}
+
+/*--------------------------------------------------------------
+# Events
+--------------------------------------------------------------*/
+.events {
+    background: url(../images/events-bg.jpg) center center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+  
+.events::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+  
+.events .section-title h2 {
+    color: #fff;
+}
+  
+.events .container {
+    position: relative;
+}
+  
+@media (min-width: 1024px) {
+    .events {
+      background-attachment: fixed;
+    }
+}
+  
+.events .events-carousel {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+}
+  
+.events .event-item {
+    color: #fff;
+}
+
+.events p {
+    color: #fff;
+}
+  
+.events .event-item h3 {
+    font-weight: 600;
+    font-size: 26px;
+    color: #cda45e;
+}
+  
+.events .event-item .price {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.events .event-item .price span {
+    border-bottom: 2px solid #cda45e;
+}
+  
+.events .event-item p:last-child {
+    margin-bottom: 0;
+}
+  
+.events .swiper-pagination {
+    margin-top: 30px;
+    position: relative;
+}
+  
+.events .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+}
+  
+.events .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #cda45e;
+}
+
+/*--------------------------------------------------------------
+# Specials
+--------------------------------------------------------------*/
+.specials {
+    overflow: hidden;
+}
+  
+.specials .nav-tabs {
+    border: 0;
+}
+  
+.specials .nav-link {
+    border: 0;
+    padding: 12px 15px;
+    transition: 0.3s;
+    color: black;
+    border-radius: 0;
+    border-right: 2px solid var(--primary-color);
+    font-weight: 600;
+    font-size: 15px;
+}
+  
+.specials .nav-link:hover {
+    color: var(--primary-color);
+}
+  
+.specials .nav-link.active {
+    color: #fff;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+  
+.specials .nav-link:hover {
+    border-color: var(--primary-color);
+}
+  
+.specials .tab-pane.active {
+    -webkit-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+}
+  
+.specials .details h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+  
+.specials .details p {
+    color: var(--text-color);
+}
+  
+.specials .details p:last-child {
+    margin-bottom: 0;
+}
+  
+@media (max-width: 992px) {
+    .specials .nav-link {
+        border: 0;
+        padding: 15px;
+    }
+}
+
+/*--------------------------------------------------------------
+# Book A Table
+--------------------------------------------------------------*/
+.book-a-table .php-email-form {
+    width: 100%;
+}
+  
+.book-a-table .php-email-form .form-group {
+    padding-bottom: 8px;
+}
+  .book-a-table .php-email-form .validate {
+    display: none;
+    color: red;
+    margin: 0 0 15px 0;
+    font-weight: 400;
+    font-size: 13px;
+}
+  
+.book-a-table .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background: #ed3c0d;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+}
+  
+.book-a-table .php-email-form .error-message br + br {
+    margin-top: 25px;
+}
+  
+.book-a-table .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+}
+  
+.book-a-table .php-email-form .loading {
+    display: none;
+    text-align: center;
+    padding: 15px;
+}
+  
+.book-a-table .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid #cda45e;
+    border-top-color: #1a1814;
+    -webkit-animation: animate-loading 1s linear infinite;
+    animation: animate-loading 1s linear infinite;
+}
+  
+.book-a-table .php-email-form input, .book-a-table .php-email-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    border-color: #625b4b;
+    color: white;
+}
+  
+.book-a-table .php-email-form input::-webkit-input-placeholder, .book-a-table .php-email-form textarea::-webkit-input-placeholder {
+    color: #a49b89;
+}
+  
+.book-a-table .php-email-form input::-moz-placeholder, .book-a-table .php-email-form textarea::-moz-placeholder {
+    color: #a49b89;
+}
+  
+.book-a-table .php-email-form input::placeholder, .book-a-table .php-email-form textarea::placeholder {
+    color: #a49b89;
+}
+  
+.book-a-table .php-email-form input:focus, .book-a-table .php-email-form textarea:focus {
+    border-color: #cda45e;
+}
+  
+.book-a-table .php-email-form input {
+    height: 44px;
+}
+  
+.book-a-table .php-email-form textarea {
+    padding: 10px 12px;
+}
+  
+.book-a-table .php-email-form button[type="submit"] {
+    background: var(--primary-color);
+    border: 0;
+    padding: 10px 35px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+  
+.book-a-table .php-email-form button[type="submit"]:hover {
+    background: #fff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background: var(--primary-color);
+}
+
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info {
+    width: 100%;
+}
+  
+.contact .info i {
+    font-size: 20px;
+    float: left;
+    width: 44px;
+    height: 44px;
+    background: var(--primary-color);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+  
+.contact .info h4 {
+  padding: 0 0 0 60px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+  
+.contact .info p {
+    padding: 0 0 0 60px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: var(--text-color);
+}
+  
+.contact .info .open-hours, .contact .info .email, .contact .info .phone {
+    margin-top: 40px;
+}
+  
+.contact .php-email-form {
+    width: 100%;
+}
+  
+.contact .php-email-form .form-group {
+    padding-bottom: 8px;
+}
+  
+.contact .php-email-form .validate {
+    display: none;
+    color: red;
+    margin: 0 0 15px 0;
+    font-weight: 400;
+    font-size: 13px;
+}
+  
+.contact .php-email-form .error-message {
+    display: none;
+    color: var(--text-color);
+    background: #ed3c0d;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+}
+  
+.contact .php-email-form .sent-message {
+    display: none;
+    color: var(--text-color);
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+}
+  
+.contact .php-email-form .loading {
+    display: none;
+    text-align: center;
+    padding: 15px;
+}
+  
+.contact .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid --primary-color;
+    border-top-color: var(--primary-color);
+    -webkit-animation: animate-loading 1s linear infinite;
+    animation: animate-loading 1s linear infinite;
+}
+  
+.contact .php-email-form input, .contact .php-email-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    border-color: #625b4b;
+    color:var(--text-color);
+}
+  
+.contact .php-email-form input::-webkit-input-placeholder, .contact .php-email-form textarea::-webkit-input-placeholder {
+    color: #a49b89;
+}
+  
+.contact .php-email-form input::-moz-placeholder, .contact .php-email-form textarea::-moz-placeholder {
+    color: #a49b89;
+}
+  
+.contact .php-email-form input::placeholder, .contact .php-email-form textarea::placeholder {
+    color: #a49b89;
+}
+  
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+    border-color: var(--primary-color);
+}
+  
+.contact .php-email-form input {
+    height: 44px;
+}
+  
+.contact .php-email-form textarea {
+    padding: 10px 12px;
+}
+  
+.contact .php-email-form button[type="submit"] {
+    background: var(--primary-color);
+    border: 0;
+    padding: 10px 35px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+  
+.contact .php-email-form button[type="submit"]:hover {
+    background: #fff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+  
+@-webkit-keyframes animate-loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+  
+  @keyframes animate-loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
