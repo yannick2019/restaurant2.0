@@ -50,3 +50,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+    $stmt = "SELECT * FROM images_gallery";
+    $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $query = $conn->prepare($stmt);
+    $query->execute();
+    $images = $query->fetchAll();
+
+    if ($images !== false) {
+        $arr = [];
+        foreach($images as $image) {
+            array_push($arr, $image);
+        }
+        echo json_encode(['images' => $arr]);
+    } else {
+        echo json_encode(['error' => 'Something went wrong.']);
+    }
+    exit();
+} 
+

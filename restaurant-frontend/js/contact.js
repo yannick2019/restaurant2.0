@@ -18,7 +18,8 @@ function submitContactForm() {
         return response.text(); 
     }))
     .then((data) => {
-        console.log(data);
+        //console.log(data);
+        alert("Message envoyé");
     })
     .catch(err => { console.log(err) }); 
 }

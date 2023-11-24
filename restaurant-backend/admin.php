@@ -31,39 +31,40 @@ try {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/admin.css">
-    <title>Koniya Restaurants</title>
+    <title>Koniya | Backoffice</title>
 </head>
 <body>
 
     <!-- Specials Section -->
     <section id="specials" class="specials">
         <div class="dashboard">
-            <div class="nav-dashboard">
+            <div class="sidebar">
                 <div class="logo">
                     <span class="fs-3">Koniya Dashboard</span>
                 </div>
                 <ul class="nav nav-tabs flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Message</a>
+                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1" data-bs-target="#tab-1">Message</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Guest book</a>
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2" href="#tab-2">Guest book</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Reservation</a>
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3" href="#tab-3">Reservation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Gallery</a>
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4" href="#tab-4">Gallery</a>
                     </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Menu</a>
+                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5" href="#tab-5">Menu</a>
                     </li>
                 </ul>
             </div>
                 <div class="main-content-dashboard">
                     <nav class="navbar-dashboard">
                         <form action="./logout.php" method="post" style="display:inline;">
-                            <button type="submit" class="nav-link fs-3" style="background: transparent; border: none;"><i class="fa-solid fa-right-from-bracket" style="color: black;"></i></button>
+                            <button type="submit" class="nav-link fs-3 logout-btn" style="background: transparent; border: none;"><i class="fa-solid fa-right-from-bracket" style="color: black;"></i></button>
+                            <div class="hover-text">Logout</div>
                         </form>
                     </nav>
                     <div class="content-dashboard">
@@ -304,5 +305,6 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="./js/admin.js"></script>
+    
 </body>
 </html>

@@ -67,12 +67,13 @@ body {
 
 
 
-.nav-dashboard {
+
+.sidebar {
     background: #d6dbdc; 
     display: flex;
     flex-direction: column;
     padding-top: 2rem;
-    width: 260px;
+    width: 240px;
     height: 1100%;
     position: fixed;
     z-index: 1000;
@@ -105,7 +106,7 @@ body {
 }
 
 .content-dashboard {
-    margin-left: 16rem;
+    margin-left: 15rem;
     padding: 0 2rem;
 }
 
@@ -113,3 +114,26 @@ body {
     margin-right: 0;
     margin-left: auto;
 }
+
+
+
+/* Initially hide the hover text */
+.main-content-dashboard .navbar-dashboard form .hover-text {
+    display: none;
+    position: absolute;
+    background-color: black; 
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Show the hover text when the button is being hovered */
+.main-content-dashboard .navbar-dashboard form .logout-btn:hover + .hover-text {
+    display: block;
+}
+
+/* Position the hover text relative to the button */
+.main-content-dashboard .navbar-dashboard form .logout-btn {
+    position: relative;
+}
+
