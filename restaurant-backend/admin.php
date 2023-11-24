@@ -108,7 +108,7 @@ try {
                                                         <?= $contact_entrie['message'] ?>
                                                     </td>
                                                     <td>
-                                                        <form action="./delete.php?id=<?= $contact_entrie['id'] ?>" method="POST"
+                                                        <form action="./delete_message.php?id=<?= $contact_entrie['id'] ?>" method="POST"
                                                             onsubmit="return confirm('Voulez vous supprimer ?')" style="display:inline;">
                                                             <button type="submit" class="btn"><i class="fa-solid fa-trash-can" style="color: black;"></i></button>                                                        
                                                         </form>
@@ -157,7 +157,7 @@ try {
                                                         <?= $guestbook_entrie['comment'] ?>
                                                     </td>
                                                     <td>
-                                                        <form action="./delete.php?id=<?= $guestbook_entrie['id'] ?>" method="POST"
+                                                        <form action="./delete_guestbook_entrie.php?id=<?= $guestbook_entrie['id'] ?>" method="POST"
                                                             onsubmit="return confirm('Voulez vous supprimer ?')" style="display:inline;">
                                                             <button type="submit" class="btn"><i class="fa-solid fa-trash-can" style="color: black;"></i></button>                                                        
                                                         </form>
@@ -216,7 +216,7 @@ try {
                                                         <?= $reservation_entrie['message'] ?>
                                                     </td>
                                                     <td>
-                                                        <form action="./delete.php?id=<?= $reservation_entrie['id'] ?>" method="POST"
+                                                        <form action="./delete_reservation.php?id=<?= $reservation_entrie['id'] ?>" method="POST"
                                                             onsubmit="return confirm('Voulez vous supprimer ?')" style="display:inline;">
                                                             <button type="submit" class="btn"><i class="fa-solid fa-trash-can" style="color: black;"></i></button>                                                        
                                                         </form>
@@ -232,7 +232,7 @@ try {
                                 <div class="row">
                                     <div class="details order-2 order-lg-1">
                                         <h3>Gallery | Add images</h3>
-                                        <!-- ********** Gallery *********** -->
+                                        <!-- ************ Gallery ************* -->
 
                                         <form action="./upload-image.php" method="post" enctype="multipart/form-data" class="pt-4">
                                             <div class="col-auto">
@@ -266,10 +266,13 @@ try {
                                                         <?= $image_gallery['filename'] ?>
                                                     </td>
                                                     <td>
-                                                        <?= $image_gallery['filename'] ?>
+                                                        <?php 
+                                                        $img = $image_gallery['filename'];
+                                                        echo "<img src='../restaurant-frontend/upload-img-gallery/$img' alt='image' style='width: 100px;'>";
+                                                        ?>
                                                     </td>
                                                     <td>
-                                                        <form action="./delete.php?id=<?= $image_gallery['id'] ?>" method="POST"
+                                                        <form action="./delete_image.php?id=<?= $image_gallery['id'] ?>" method="POST"
                                                             onsubmit="return confirm('Voulez vous supprimer ?')" style="display:inline;">
                                                             <button type="submit" class="btn"><i class="fa-solid fa-trash-can" style="color: black;"></i></button>                                                        
                                                         </form>

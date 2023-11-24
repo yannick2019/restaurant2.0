@@ -18,8 +18,8 @@ try {
 
 $id = $_GET['id'];
 
-// Delete post
-$query = $conn->prepare("DELETE FROM contact_entries WHERE id = ?");
+// Delete reservation
+$query = $conn->prepare("DELETE FROM reservation_entries WHERE id = ?");
 $result = $query->execute([$id]);
 
 if ($result === false) {
