@@ -18,8 +18,7 @@ function submitGuestbookForm() {
         return response.text(); 
     }))
     .then((data) => {
-        //console.log(data);
-        alert("Message envoyé");
+        alert(data);
     })
     .catch(err => { console.log(err) }); 
 }

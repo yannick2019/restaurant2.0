@@ -18,8 +18,7 @@ function submitReservationForm() {
         return response.text(); 
     }))
     .then((data) => {
-        //console.log(data);
-        alert("Reservation done!");
+        alert(data);
     })
     .catch(err => { console.log(err) }); 
 }

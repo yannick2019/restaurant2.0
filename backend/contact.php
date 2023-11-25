@@ -34,7 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->bindParam(4, $message);
     
     if ($stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "Contact entry added successfully"]);
+        //echo json_encode(["success" => true, "message" => "Contact entry added successfully"]);
+        echo "Contact entry added successfully";
     } else {
         http_response_code(500);
         echo json_encode(["error" => "Error executing the database query"]);
