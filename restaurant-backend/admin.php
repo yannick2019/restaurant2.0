@@ -6,21 +6,8 @@ if ($_SESSION['ROLE'] !== 'admin') {
     die();
 }
 
+include 'db_connection.php';
 
-// MySQL Database Connection
-$host = "localhost";
-$user_name = "root";
-$user_password = "root";
-$database = "restaurant";
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$database", $user_name, $user_password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(["error" => "Database connection error: " . $e->getMessage()]);
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -40,25 +27,31 @@ try {
         <div class="dashboard">
             <div class="sidebar">
                 <div class="logo">
-                    <span class="fs-3">Koniya Dashboard</span>
+                    <span class="fs-3">Koniya Restaurants</span>
                 </div>
                 <ul class="nav nav-tabs flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1" data-bs-target="#tab-1">Message</a>
+                        <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1" href="#tab-1">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2" href="#tab-2">Guest book</a>
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2" href="#tab-2">Message</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3" href="#tab-3">Reservation</a>
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3" href="#tab-3">Guest book</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4" href="#tab-4">Gallery</a>
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4" href="#tab-4">Reservation</a>
                     </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5" href="#tab-5">Menu</a>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5" href="#tab-5">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-6" href="#tab-6">Menu</a>
                     </li>
                 </ul>
+                <form action="./logout.php" method="post" style="display:inline;">
+                    <button type="submit" class="nav-link logout-btn" style="background: transparent; border: none;"><i class="fa-solid fa-right-from-bracket" style="color: black;"></i> Disconnect</button>
+                </form>
             </div>
                 <div class="main-content-dashboard">
                     <nav class="navbar-dashboard">
@@ -68,13 +61,72 @@ try {
                         </form>
                     </nav>
                     <div class="content-dashboard">
-                        <h1 class="text-center pt-5 mb-4">Dashboard</h1>
-                        <div class="tab-content">
+                        <div class="tab-content pt-5">
+                            <!-- ********** Dashboard ****************** -->
                             <div class="tab-pane active show" id="tab-1">
                                 <div class="row">
+                                    <div class="details order-2 order-lg-1">                                        
+                                        <div class="container">
+                                            <h2 class="pb-4"><i class="fa fa-fw fa-dashboard"></i>Dashboard</h2>
+                                            <div class="row">
+                                                <div class="col-xl-3 col-sm-6 mb-3">                                      
+                                                    <div class="card" style="height: 12rem; background-color: #a82c48; color: #fff;">
+                                                        <div class="card-body">
+                                                            <h4>Messages</h4>
+                                                            <?php 
+                                                            //Count messages
+                                                            $count_msg = (int)$conn->query("SELECT COUNT(id) FROM contact_entries")->fetch(PDO::FETCH_NUM)[0];
+                                                            echo "<p style='font-size: 2rem;'>$count_msg</p>";
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-xl-3 col-sm-6 mb-3">                                      
+                                                    <div class="card" style="height: 12rem; background-color: #a82c48; color: #fff;">
+                                                        <div class="card-body">
+                                                            <h4>Guest book</h4>
+                                                            <?php 
+                                                            $count_msg = (int)$conn->query("SELECT COUNT(id) FROM guestbook_entries")->fetch(PDO::FETCH_NUM)[0];
+                                                            echo "<p style='font-size: 2rem;'>$count_msg</p>";
+                                                            echo "messages";
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-sm-6 mb-3">                                      
+                                                    <div class="card" style="height: 12rem; background-color: #a82c48; color: #fff;">
+                                                        <div class="card-body">
+                                                            <h4>Reservations</h4>
+                                                            <?php 
+                                                            $count_msg = (int)$conn->query("SELECT COUNT(id) FROM reservation_entries")->fetch(PDO::FETCH_NUM)[0];
+                                                            echo "<p style='font-size: 2rem;'>$count_msg</p>";
+                                                            echo "reservations";
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-sm-6 mb-3">                                      
+                                                    <div class="card" style="height: 12rem; background-color: #a82c48; color: #fff;">
+                                                        <div class="card-body">
+                                                            <h4>Gallery</h4>
+                                                            <?php 
+                                                            $count_msg = (int)$conn->query("SELECT COUNT(id) FROM images_gallery")->fetch(PDO::FETCH_NUM)[0];
+                                                            echo "<p style='font-size: 2rem;'>$count_msg</p>";
+                                                            echo "images";
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ********** Messages ****************** -->
+                            <div class="tab-pane" id="tab-2">
+                                <div class="row">
                                     <div class="details order-2 order-lg-1">
-                                        <!-- ********** Messages *********** -->
-                                        <h3>Messages</h3>
+                                        <h2 class="pb-4">Messages</h2>
                                         <?php 
                                         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
                                         $query = $conn->prepare("SELECT * 
@@ -83,7 +135,7 @@ try {
                                         $query->execute();
                                         $contact_entries = $query->fetchAll();
                                         ?>
-                                        <table class="table table-striped">
+                                        <table class="table table-striped table-bordered border-dark">
                                             <thead>
                                                 <th>Date</th>
                                                 <th>Name</th>
@@ -121,11 +173,11 @@ try {
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab-2">
+                            <!-- ********** Guest book ******************* -->
+                            <div class="tab-pane" id="tab-3">
                                 <div class="row">
-                                    <div class="details order-2 order-lg-1">
-                                        <!-- ********** Guest book *********** -->
-                                        <h3>Guest book</h3>
+                                    <div class="details order-2 order-lg-1">                                        
+                                        <h2 class="pb-4">Guest book</h2>
                                         <?php 
                                         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
                                         $query = $conn->prepare("SELECT * 
@@ -134,7 +186,7 @@ try {
                                         $query->execute();
                                         $guestbook_entries = $query->fetchAll();
                                         ?>
-                                        <table class="table table-striped">
+                                        <table class="table table-striped table-bordered border-dark">
                                             <thead>
                                                 <th>Date</th>
                                                 <th>Name</th>
@@ -170,18 +222,18 @@ try {
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab-3">
+                            <!-- ********** Reservations ******************** -->
+                            <div class="tab-pane" id="tab-4">
                                 <div class="row">
                                     <div class="details order-2 order-lg-1">
-                                        <h3>Reservations</h3>
-                                        <!-- ********** Reservations *********** -->
+                                        <h2 class="pb-4">Reservations</h2>
                                         <?php 
                                         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
                                         $query = $conn->prepare("SELECT * FROM reservation_entries");
                                         $query->execute();
                                         $reservation_entries = $query->fetchAll();
                                         ?>
-                                        <table class="table table-striped">
+                                        <table class="table table-striped table-bordered border-dark">
                                             <thead>
                                                 <th>Name</th>
                                                 <th>Email</th>
@@ -229,12 +281,11 @@ try {
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab-4">
+                            <!-- ************ Gallery ******************** -->
+                            <div class="tab-pane" id="tab-5">
                                 <div class="row">
                                     <div class="details order-2 order-lg-1">
-                                        <h3>Gallery | Add images</h3>
-                                        <!-- ************ Gallery ************* -->
-
+                                        <h2 class="pb-3">Gallery</h2>
                                         <form action="./upload-image.php" method="post" enctype="multipart/form-data" class="pt-4">
                                             <div class="col-auto">
                                                 <input type="file" name="image" class="form-control" required>
@@ -250,7 +301,7 @@ try {
                                         $query->execute();
                                         $images_gallery = $query->fetchAll();
                                         ?>
-                                        <table class="table table-striped">
+                                        <table class="table table-striped table-bordered border-dark">
                                             <thead>
                                                 <th>Date</th>
                                                 <th>Filename</th>
@@ -285,11 +336,43 @@ try {
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab-5">
+                            <!-- ************ Menu ******************** -->
+                            <div class="tab-pane" id="tab-6">
                                 <div class="row">
                                     <div class="details order-2 order-lg-1">
-                                        <h3>Menu</h3>
-                                        
+                                        <h2 class="pb-4"><i class="fa-solid fa-utensils fs-3"></i> Menu</h2>
+                                        <div class="mb-3">
+                                            <i class="fa-solid fa-plus" style="color: #1a2942;"></i> <a href="./add_dishe.php">Add dishe</a>
+                                        </div>
+                                        <?php 
+                                        ?>
+                                        <table class="table table-striped table-bordered border-dark">
+                                            <thead>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Category</th>
+                                                <th>Price</th>
+                                                <th>Image</th>
+                                                <th>Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <?php //foreach($dishes as $dishe): ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td> </td>
+                                                    <td>
+                                                        <form action="./delete_dishe.php?id=<?= $reservation_entrie['id'] ?>" method="POST"
+                                                            onsubmit="return confirm('Voulez vous supprimer ?')" style="display:inline;">
+                                                            <button type="submit" class="btn"><i class="fa-solid fa-trash-can" style="color: black;"></i></button>                                                        
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                <?php //endforeach ?>
+                                            </tbody>
+                                        </table>                                        
                                     </div>
                                 </div>
                             </div>

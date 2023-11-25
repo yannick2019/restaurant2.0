@@ -2,20 +2,7 @@
 
 header("Content-Type: application/json");
 
-// MySQL Database Connection
-$host = "localhost";
-$username = "root";
-$password = "root";
-$database = "restaurant";
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$database", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(["error" => "Database connection error: " . $e->getMessage()]);
-    exit;
-}
+include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
@@ -26,12 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     echo json_encode($response);
 }
 
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
-    $name = $data["name"];
-    $email = $data["email"];
-    $subject = $data["subject"];
-    $message = $data["message"];
+    $name = test_input($data["name"]);
+    $email = test_input($data["email"]);
+    $subject = test_input($data["subject"]);
+    $message = test_input($data["message"]);
     
     $stmt = $conn->prepare("INSERT INTO contact_entries (name, email, subject, message) VALUES (?, ?, ?, ?)");
     $stmt->bindParam(1, $name);

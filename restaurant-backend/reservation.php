@@ -5,20 +5,7 @@ session_start();
 header("Content-Type: application/json");
 
 
-// MySQL Database Connection
-$host = "localhost";
-$username = "root";
-$password = "root";
-$database = "restaurant";
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$database", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(["error" => "Database connection error: " . $e->getMessage()]);
-    exit;
-}
+include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
@@ -30,15 +17,22 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
 }
 
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
-    $name = $data["name"];
-    $email = $data["email"];
-    $phone = $data["phone"];
-    $date = $data["date"];
-    $time = $data["time"];
-    $people = $data["people"];
-    $message = $data["message"] ?? null;
+    $name = test_input($data["name"]);
+    $email = test_input($data["email"]);
+    $phone = test_input($data["phone"]);
+    $date = test_input($data["date"]);
+    $time = test_input($data["time"]);
+    $people = test_input($data["people"]);
+    $message = test_input($data["message"]) ?? null;
 
     $stmt = $conn->prepare("INSERT INTO reservation_entries (name, email, phone, date, time, people, message) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bindParam(1, $name);
