@@ -70,7 +70,8 @@ include 'db_connection.php';
             <?php endif ?>
             
             <!-- Uploader une image -->
-            <input type="file" name="filename" class="form-control mb-2">
+            <label for="filename" class="mb-2">Image</label>
+            <input type="file" name="filename" id="filename" class="form-control mb-2">
             <?php if(isset($errors['filename'])): ?>  
                 <div class="alert alert-danger">
                     <?= $errors['filename'] ?>
@@ -78,7 +79,7 @@ include 'db_connection.php';
             <?php endif ?>
             <!-- End -->
 
-            <button type="submit" class="btn" style="background-color: #a82c48; color: #fff;">Add dishe</button>
+            <button type="submit" class="btn mt-2" style="background-color: #a82c48; color: #fff;">Add dishe</button>
         </form>
     </div>
 
