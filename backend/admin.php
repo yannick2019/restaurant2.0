@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SESSION['ROLE'] !== 'admin') {
-    header("location: /restaurant2.0/restaurant-backend/login.php"); 
+    header("location: /restaurant2.0/backend/login.php"); 
     die();
 }
 
@@ -14,11 +14,11 @@ include 'db_connection.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="../restaurant-frontend/images/koniya-favicon.png">
+    <link rel="icon" type="image/x-icon" href="../frontend/images/koniya-favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/admin.css">
-    <title>Koniya | Backoffice</title>
+    <title>Koniya | Back office</title>
 </head>
 <body>
 
@@ -320,7 +320,7 @@ include 'db_connection.php';
                                                     <td>
                                                         <?php 
                                                         $img = $image_gallery['filename'];
-                                                        echo "<img src='../restaurant-frontend/upload-img-gallery/$img' alt='image' style='width: 100px;'>";
+                                                        echo "<img src='../frontend/upload-img-gallery/$img' alt='image' style='width: 100px;'>";
                                                         ?>
                                                     </td>
                                                     <td>
@@ -362,13 +362,8 @@ include 'db_connection.php';
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td> </td>
-                                                    <td>
-                                                        <form action="./delete_dishe.php?id=<?= $reservation_entrie['id'] ?>" method="POST"
-                                                            onsubmit="return confirm('Voulez vous supprimer ?')" style="display:inline;">
-                                                            <button type="submit" class="btn"><i class="fa-solid fa-trash-can" style="color: black;"></i></button>                                                        
-                                                        </form>
-                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
                                                 </tr>
                                                 <?php //endforeach ?>
                                             </tbody>

@@ -7,7 +7,7 @@ function submitContactForm() {
         jsonData[key] = value;
     });
     console.log(jsonData);
-    fetch('http://localhost:8888/restaurant2.0/restaurant-backend/contact.php', {
+    fetch('http://localhost:8888/restaurant2.0/backend/contact.php', {
         method: 'POST',
         mode: "cors",
         credentials: "include",

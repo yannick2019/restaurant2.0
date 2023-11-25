@@ -7,7 +7,7 @@ function submitGuestbookForm() {
         jsonData[key] = value;
     });
     console.log(jsonData);
-    fetch('http://localhost:8888/restaurant2.0/restaurant-backend/guestbook.php', {
+    fetch('http://localhost:8888/restaurant2.0/backend/guestbook.php', {
         method: 'POST',
         mode: "cors",
         credentials: "include",

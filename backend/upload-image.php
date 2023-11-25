@@ -23,12 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 if (in_array($img_ex_lc, $allowed_exs)) {
                     $new_img_name = uniqid('IMG-', true) . '.' . $img_ex_lc;
-                    $img_upload_path = '../restaurant-frontend/upload-img-gallery/' . $new_img_name;
+                    $img_upload_path = '../frontend/upload-img-gallery/' . $new_img_name;
                     move_uploaded_file($tmp_name, $img_upload_path);
 
                     $query = $conn->prepare("INSERT INTO images_gallery (filename) VALUES (?)");
                     $query->execute([$new_img_name]);
-                    header("location: /restaurant2.0/restaurant-backend/admin.php"); 
+                    header("location: /restaurant2.0/backend/admin.php"); 
                 } else {
                     $errors['image'] = "Fichier non supporté.";
                 }

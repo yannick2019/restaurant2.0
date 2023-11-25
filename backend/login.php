@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["NAME"] = $username;
                 if($user['role'] === 'admin') {
                     $_SESSION['ROLE'] = 'admin';
-                    header("location: /restaurant2.0/restaurant-backend/admin.php"); 
+                    header("location: /restaurant2.0/backend/admin.php"); 
                 } else {
-                    header("location: /restaurant2.0/restaurant-frontend/index.html");
+                    header("location: /restaurant2.0/frontend/index.html");
                 }               
             }
             else{  
@@ -63,10 +63,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>    
 
     <div class="container bg-light p-4 mt-5" style="width: 500px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-        <h1 class="text-center">Backoffice</h1>
+        <h1 class="text-center">Back office</h1>
         <form method="post">    
             <div>
-                <label for="username" class="form-label">Nom d'utilisateur</label>
+                <label for="username" class="form-label">Username</label>
                 <input type="text" name="username" id="username" value="<?= $username ?? '' ?>" class="form-control">
             </div><br>
             <?php if (isset($errors['username'])): ?>
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endif ?>
             <div>
-                <label for="password" class="form-label">Mot de passe</label>
+                <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" id="password" class="form-control">
             </div><br> 
             <?php if (isset($errors['password'])): ?>
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif ?>         
             <p><button type="submit" class="btn" style="background-color: #a82c48; color: #fff;">Se connecter</button></p>
         </form>
-        <a href="/restaurant2.0/restaurant-frontend/index.html">Back to Home page</a>
+        <a href="/restaurant2.0/frontend/index.html">Back to Home page</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

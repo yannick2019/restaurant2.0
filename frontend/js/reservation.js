@@ -7,7 +7,7 @@ function submitReservationForm() {
         jsonData[key] = value;
     });
     console.log(jsonData);
-    fetch('http://localhost:8888/restaurant2.0/restaurant-backend/reservation.php', {
+    fetch('http://localhost:8888/restaurant2.0/backend/reservation.php', {
         method: 'POST',
         mode: "cors",
         credentials: "include",

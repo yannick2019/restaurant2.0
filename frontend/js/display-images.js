@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", requestImages);
 
 function requestImages() {
-    fetch('http://localhost:8888/restaurant2.0/restaurant-backend/upload-image.php', { method: 'GET' })
+    fetch('http://localhost:8888/restaurant2.0/backend/upload-image.php', { method: 'GET' })
         .then(res => res.json())
         .then((data) => {
             //console.log(data);
@@ -11,7 +11,7 @@ function requestImages() {
             //console.log(container);
             if (imagesFromDatbase) {
                 imagesFromDatbase.forEach(image => {
-                    //console.log(image.filename);
+                    console.log(image.filename);
                     const divCol = document.createElement("div");
                     divCol.className = "col-lg-3 col-md-4";
 

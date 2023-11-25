@@ -12,7 +12,7 @@ $img = $query->fetch();
 
 // Delete image file from upload directory
 $img_name = $img['filename'];
-unlink("../restaurant-frontend/upload-img-gallery/" . $img_name);
+unlink("../frontend/upload-img-gallery/" . $img_name);
 
 // Delete image file from database
 $query2 = $conn->prepare("DELETE FROM images_gallery WHERE id = ?");
@@ -23,4 +23,4 @@ if ($result === false) {
 }
 
 
-header("location: /restaurant2.0/restaurant-backend/admin.php?delete=1");
+header("location: /restaurant2.0/backend/admin.php?delete=1");
