@@ -42,7 +42,6 @@ include 'db_connection.php';
                     <option value="appetizer">Appetizer</option>
                     <option value="main_course">Main course</option>
                     <option value="dessert">Dessert</option>
-                    <option value="Culture">Culture</option>
                     <option value="drink">Drink</option>
                 </select>
             </div>
