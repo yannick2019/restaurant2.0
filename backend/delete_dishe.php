@@ -2,4 +2,4 @@
 
 session_start();
 
-include 'db_connection.php';
+require('db_connection.php');

@@ -6,7 +6,7 @@ if ($_SESSION['ROLE'] !== 'admin') {
     die();
 }
 
-include 'db_connection.php';
+require('db_connection.php');
 
 ?>
 

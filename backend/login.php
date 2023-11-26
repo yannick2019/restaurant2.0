@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else {
 
-        include 'db_connection.php';
+        require('db_connection.php');
 
         $sql = "SELECT * FROM users WHERE username = ?"; 
 

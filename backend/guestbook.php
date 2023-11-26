@@ -2,7 +2,7 @@
 
 header("Content-Type: application/json");
 
-include 'db_connection.php';
+require('db_connection.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
