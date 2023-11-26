@@ -26,7 +26,7 @@
 ![screenshot homepage](./frontend/img-readme/screen-shot-homepage%20.jpeg)
 
 ### Back-office login page
-Click [here](http://localhost:8888/restaurant2.0/backend/login.php) to access Back Office (username: admin, password: 123)
+Click [here]() to access Back Office (username: admin, password: 123)
 
 ![screenshot back office login page](./frontend/img-readme/sreen-shot-loginpage%20.jpeg)
 
